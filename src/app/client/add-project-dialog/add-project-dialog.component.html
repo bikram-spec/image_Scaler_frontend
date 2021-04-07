@@ -1,0 +1,70 @@
+<div class="add-project-dialog">
+    <div class="dialog-title">
+        <p class="dialog-title-h1" mat-dialog-title>
+            Create new dataset
+        </p>
+    </div>
+    <div class="dialog-form-div" >
+        <form class="dialog-form" [formGroup]="dname" novalidate (ngSubmit)="onsubmit()">
+            <div class="input-field">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>
+                        Enter Dataset Name
+                    </mat-label>
+                    <input type="text" matInput required=true formControlName="Dataset_name" maxlength="15">
+                    <mat-error *ngIf="dname.controls['Dataset_name'].hasError('required')">
+                        <p class="Dataset_name">The Dataset Name is <strong>required</strong></p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="select-field">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label class="select-label">
+                        Type of Dataset
+                    </mat-label>
+                    <mat-select class="mat-select" required=true formControlName="select_type">
+                        <mat-option *ngFor="let type of select_types" [value]="type" >{{type}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dname.controls['select_type'].hasError('required')">
+                        <p>You need to select <strong> something</strong></p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="anno-chips">
+                <mat-form-field class="example-chip-list"  appearance="outline">
+                    <mat-label>Objects To Annotate</mat-label>
+                    <mat-chip-list #chipList aria-label="Object selection">
+                      <mat-chip *ngFor="let obj of objects" [selectable]="selectable"
+                               [removable]="removable" (removed)="remove(obj)">
+                        {{obj}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input placeholder="New Object..."
+                             [matChipInputFor]="chipList"
+                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                             [matChipInputAddOnBlur]="addOnBlur"
+                             (matChipInputTokenEnd)="add($event)" formControlName="object">
+                    </mat-chip-list>
+                    <mat-error *ngIf="dname.controls['object'].hasError('required')">
+                        <p>You need to Enter <strong> something</strong></p>
+                    </mat-error>
+                  </mat-form-field>
+            </div>
+            <div class="instructin-field">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>
+                        Enter Your Instruction here...
+                    </mat-label>
+                    <textarea matInput required=true name="instruction" id="instruction" cols="30" rows="5" formControlName="instruction"></textarea>
+                    <mat-error>
+                        This field is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="dialog-action" mat-dialog-action>
+                <button class="cancel-button" mat-raised-button color="primary" type="reset" (click)="oncancelclick()"> Cancel</button>
+                <button class="submit-button" mat-raised-button color="primary" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

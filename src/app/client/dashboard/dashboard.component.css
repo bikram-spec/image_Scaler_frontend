@@ -1,0 +1,78 @@
+/*  main layout */
+.grid-container {
+  margin: 20px;
+}
+/*mat Icons and font property  */
+
+/* mat icons ends */
+/* Default card or add card  */
+#default-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#default-card:hover {
+  background-color: lightskyblue;
+}
+#default-card:hover > .default-card-content {
+  color: white;
+}
+.default-card-content {
+  text-align: center;
+  color: lightseagreen;
+}
+#add-icon {
+  float:center;
+  font-size: 80px;
+}
+/*  Server Rendererdered card */
+#dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+}
+/* Card header Start  */
+.dashboard-card:hover >.card-header > #header-icon  {
+  display: block;
+}
+#header-icon {
+  float: right;
+  font-size: 30px;
+  display: none;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.card-subtitle {
+  padding-top: 5px;
+}
+/* Card Header ends  */
+/* Card content Start */
+.dashboard-card-content {
+  background-color: rgb(240, 240, 240);
+}
+.card-number {
+  font-size: 60px;
+  float: left;
+  padding-left: 5px;
+  padding-top: 50px;
+}
+/* Card Content Ends */
+.card-footer {
+  padding-top: 50px;
+  float: right;
+}
+/* Card fotter start */
+
+/* Card fotter ends */
+/* Server Card ends  */

@@ -1,0 +1,43 @@
+<!-- Main  grid layout layout  -->
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="4" rowHeight="250px">
+    <mat-grid-tile *ngFor="let card of scard " [colspan]="cols" [rowspan]="rows">
+      <!--  Default card Start -->
+      <mat-card class="default-card" id="default-card" *ngIf="card.Dataset_title==='default'" (click)="opendialog()">
+        <mat-card-content class="default-card-content">
+          <div class="add-icon">
+            <span class="material-icons" id="add-icon">+</span>
+          </div>    
+          <div class="content">
+            <h3>Add Dataset</h3>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <!-- Default Card ends  -->
+      <!-- Server rendered Card Start  -->
+      <mat-card class="dashboard-card" id="dashboard-card" *ngIf="card.Dataset_title!='default'" [routerLink]="[link,card.Dataset_title]" >
+        <mat-card-header class="card-header">
+          <mat-card-title>
+            {{card.Dataset_title}}
+          </mat-card-title>
+          <span class="material-icons" id="header-icon">more_vert</span>
+          <mat-card-subtitle class="card-subtitle">
+            Created On {{card.Date_of_creaction}}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="card-icon">
+            <p>{{card.Dataset_type}}</p>
+          </div>
+          <!-- <p class="card-number"> {{card.Dataset_type}} </p> -->
+        </mat-card-content>
+        <mat-card-footer class="card-footer">
+          <button mat-button color="primary">View <span  class="material-icons">arrow_forward</span></button>
+        </mat-card-footer>
+      </mat-card>
+      <!-- server rendered card ends  -->
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<!--  main ends  -->

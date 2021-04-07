@@ -1,0 +1,43 @@
+<div class="grid-cointainer">
+    <mat-grid-list *ngFor="let card of cards | async" cols="6" rowHeight="567px" class="grid-list">
+        <mat-grid-tile [colspan]="card.cols1" [rowspan]="card.rows1" class="grud-title-2"></mat-grid-tile>
+            <mat-grid-tile [colspan]="card.cols2" [rowspan]="card.rows2" class="grid-tile-1">
+            <div class="mat-card-div">
+            <mat-card class="mat-card" style="padding-left: 0px;" >
+                    <mat-card-title class="mat-card-title" style="text-align: center; padding: 5px;"><h1 class="mat-h1">MLDC</h1></mat-card-title>
+                    <mat-card-title class="mat-card-title" style="text-align: center;"><h1 class="mat-h1">Sign In</h1></mat-card-title>
+                    <mat-card-subtitle class="mat-card-subtitle"><h3 class="mat-h3">Use your MLDC Account</h3></mat-card-subtitle>
+                    <form [formGroup]="signin" novalidate (ngSubmit)="onsubmit()" class="form-element">
+                        <mat-form-field class="form-field">
+                            <input matInput placeholder="Enter the Email" formControlName="email">
+                            <mat-error *ngIf="signin.controls['email'].hasError('required')">
+                                Email is <strong>Required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="signin.controls['email'].hasError('email')">
+                                Email is <strong>Invalid</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="form-field">
+                            <input matInput [type]="hide ? 'password' : 'text' " placeholder="Enter Your Password" formControlName="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                                <mat-icon class="button-eye">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                            <mat-error *ngIf="signin.controls['password'].hasError('required')">
+                                Password is <strong>Required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="signin.controls['password'].hasError('MinLength')">
+                                Password of Minium  <strong>8 character</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                    <mat-card-subtitle class="mat-card-subtitle-2"><h3 class="mat-h3">Use your Private Device To Sign in</h3></mat-card-subtitle>
+                    <mat-card-actions class="card-action">
+                        <button mat-raised-button color="primary" type="reset" >Clear</button>
+                        <button mat-raised-button color="primary" type="submit">Submit</button>
+                    </mat-card-actions>
+                    </form>
+            </mat-card>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

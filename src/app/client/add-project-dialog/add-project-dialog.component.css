@@ -1,0 +1,92 @@
+/* main dialog window */
+.add-project-dialog {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+    /* dialog title */
+    .dialog-title {
+        color: lightblue;
+        margin: 0px;
+        overflow: hidden;
+    }
+        .dialog-title-h1 {
+            font-size: 22px;
+        }
+    /* dialog titile end */
+
+    /* dialog-form start */
+    .dialog-form-div {
+    margin:0px;
+    padding: 0px;   
+    overflow: hidden;
+    }
+        .dialog-form {
+            margin: 0px;
+        }
+            .input-field {
+                margin: 0px;
+            }
+                .form-field {
+                    margin: 0px;
+                    display: block;
+                }
+    /* Dialog form end  */
+
+    /* dialog-content start */
+    .dialgo-content {
+        display: block;
+    }
+        .dialog-grid-list {
+            display: block;
+        }
+            .dialog-grid-tile {
+                display: block;
+            }
+                .dialog-card{
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    right: 15px;
+                    bottom: 15px;
+                    border-radius: 15px;
+                    cursor: pointer;
+                }
+                    .dialog-card-header {
+                        display: block;
+                    }
+                        .dialog-card-titile {
+                            display: block;
+                        }
+                        .dialog-card-subtitle {
+                            display: block;
+                        }
+                    .dialog-card-content {
+                        display: block;
+                    }
+    /* dialog content end */
+
+    /* dialog action  */
+    .dialog-action {
+        display: flex;
+        float: right;
+    }
+        .submit-button {
+            margin-left: 20px;
+        }
+        .cancel-button {
+            margin-left:20px;
+        }
+    /*  dialog action end  */
+
+
+/* chips style */
+.anno-chips {
+    width: 100%;
+}
+.example-chip-list {
+    width: 100%;
+  }
+
+/* main dialoag windows close */

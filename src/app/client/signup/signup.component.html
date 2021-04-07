@@ -1,0 +1,61 @@
+<div class="grid-cointainer">
+  <mat-grid-list *ngFor="let card of cards | async" cols=6 rowHeight="567px" class="mat-grid-list">
+    <mat-grid-tile [colspan]="card.cols1" [rowspan]="card.rows1" class="mat-grid-tile"></mat-grid-tile>
+    <mat-grid-tile class="mat-grid-tile2" [colspan]="card.cols2" [rowspan]="card.rows2">
+      <div class="mat-card-div">
+        <mat-card class="mat-card" style="padding-left: 0px;">
+          <mat-card-title class="mat-card-title" style="text-align: center; padding: 5px;"><h1 class="mat-h1">MLDC</h1></mat-card-title>
+          <mat-card-title class="mat-card-title" style="text-align: center;"><h1 class="mat-h1">Sign Up</h1></mat-card-title>
+          <mat-card-subtitle class="mat-card-subtitle"><h3 class="mat-h3">Create your MLDC Account</h3></mat-card-subtitle>
+          <form [formGroup]="signup" novalidate (ngSubmit)="onSubmit()" class="form-element">
+            <mat-form-field class="form-field">
+              <input matInput placeholder="Institue Name" formControlName="institue_name">
+              <mat-error *ngIf="signup.controls['institue_name'].hasError('required')">
+                Institution  name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="signup.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="signup.controls['email'].hasError('email')">
+                Email is <strong>Invalid</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+              <mat-label>Enter The Password</mat-label>
+              <input matInput placeholder="Enter the Password" [type]="hide ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                <mat-icon class="button-eye">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="signup.controls['password'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="signup.controls['password'].hasError('minLength')">
+                Password Should be of  <strong>minium 8 Characters</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+<!--               <mat-label>Retype The Password</mat-label> -->
+              <input matInput placeholder="Retype The password" #cnfpassword minlength="5" [type]="hide ? 'password' : 'text'" formControlName="confirm_password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                <mat-icon class="button-eye">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="signup.controls['confirm_password'].hasError('required')">
+                This Field is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="signup.controls['confirm_password'].hasError('mustMatch')">
+                The Password doesn't <strong>Match</strong>
+              </mat-error>
+            </mat-form-field>
+          <mat-card-actions class="card-action">
+            <button mat-raised-button color="primary" type="reset" (click)="onclear()" >Clear</button>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+          </mat-card-actions>
+          </form>  
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

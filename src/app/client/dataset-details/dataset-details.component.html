@@ -1,0 +1,47 @@
+<div class="image-upload">
+    <form class="image-upload-form" (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
+        <mat-form-field>
+            <div>
+                <mat-toolbar>
+                    <!-- Display files names -->
+                    <input matInput [(ngModel)]="fileAttr" readonly name="name" />
+            
+                    <!-- Browse Button -->
+                    <button mat-flat-button color="primary">
+                    Browse File
+                    </button>
+                </mat-toolbar>
+            
+                <!-- Fetch selected filed on change -->
+                <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" multiple="multiple"
+                    accept="image/*" />
+            </div>                 
+        </mat-form-field>
+        <button class="submit-button" mat-raised-button color="primary" type="submit">Upload</button>
+    </form>
+    <!-- Place to show the images and tabs -->
+    <mat-tab-group class="tabs-group">
+        <mat-tab class=tab label="Images">
+            <div class="list-images">
+                <div class="img-url" *ngIf="images_url">
+                    <mat-grid-list cols="3" rowHeight="250px">
+                        <div class="img-looper" *ngFor="let uimage of images_url">
+                            <!-- <img [src]="uimage" /> -->
+                            <mat-grid-tile>
+                                <mat-card class="example-card">
+                                    <img mat-card-image [src]="uimage.uri" alt="Image" class="card-image">
+                                    <mat-card-content>
+                                    <p> <strong>Status:-</strong> {{uimage.Status}}</p>
+                                    </mat-card-content>
+                                </mat-card>
+                            </mat-grid-tile>
+                        </div>
+                    </mat-grid-list>
+                </div>    
+            </div>
+            </mat-tab>
+            <mat-tab class="tab" label="Scaled Images">
+                <h1>welcome to the Scaled Images...</h1>
+            </mat-tab>
+    </mat-tab-group>
+</div>
