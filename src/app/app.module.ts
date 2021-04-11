@@ -60,6 +60,7 @@ import { HttpHelperService  } from '../app/services/http-helper.service';
 // auth gurad and intercepator
 import { AuthGuard } from '../app/auth/auth.guard';
 import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } from '@angular/common/http';
+import { ScaledImgComponent } from './client/scaled-img/scaled-img.component';
 
 
 
@@ -86,7 +87,8 @@ import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } f
     // scaler component 
     EditorComponent,
     SloginComponent,
-    SsignupComponent
+    SsignupComponent,
+    ScaledImgComponent
   ],
   imports: [
     BrowserModule,

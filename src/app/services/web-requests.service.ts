@@ -41,6 +41,12 @@ export class WebRequestsService {
   {
     return this.request.imgget("getdata",pname);
   }
+  /* list scaled images */
+  listscaledimages(pname:string)
+  {
+    return this.request.imgget("getScaleddata",pname);
+  }
+
   // Scaler helper methods ....
   getinfo()
   {

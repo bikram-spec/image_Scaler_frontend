@@ -1,27 +1,27 @@
 <div class="image-upload">
-    <form class="image-upload-form" (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
-        <mat-form-field>
-            <div>
-                <mat-toolbar>
-                    <!-- Display files names -->
-                    <input matInput [(ngModel)]="fileAttr" readonly name="name" />
-            
-                    <!-- Browse Button -->
-                    <button mat-flat-button color="primary">
-                    Browse File
-                    </button>
-                </mat-toolbar>
-            
-                <!-- Fetch selected filed on change -->
-                <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" multiple="multiple"
-                    accept="image/*" />
-            </div>                 
-        </mat-form-field>
-        <button class="submit-button" mat-raised-button color="primary" type="submit">Upload</button>
-    </form>
-    <!-- Place to show the images and tabs -->
     <mat-tab-group class="tabs-group">
         <mat-tab class=tab label="Images">
+            <form class="image-upload-form" (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
+                <mat-form-field>
+                    <div>
+                        <mat-toolbar>
+                            <!-- Display files names -->
+                            <input matInput [(ngModel)]="fileAttr" readonly name="name" />
+                    
+                            <!-- Browse Button -->
+                            <button mat-flat-button color="primary">
+                            Browse File
+                            </button>
+                        </mat-toolbar>
+                    
+                        <!-- Fetch selected filed on change -->
+                        <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" multiple="multiple"
+                            accept="image/*" />
+                    </div>                 
+                </mat-form-field>
+                <button class="submit-button" mat-raised-button color="primary" type="submit">Upload</button>
+            </form>
+            <!-- Place to show the images and tabs -->
             <div class="list-images">
                 <div class="img-url" *ngIf="images_url">
                     <mat-grid-list cols="3" rowHeight="250px">
@@ -41,7 +41,11 @@
             </div>
             </mat-tab>
             <mat-tab class="tab" label="Scaled Images">
-                <h1>welcome to the Scaled Images...</h1>
+                <!-- <h1>welcome to the Scaled Images...</h1> -->
+                <app-scaled-img></app-scaled-img>
+                <!-- <div class="scaled-img-div">
+                    <iframe src="http://localhost:3000/engine/demo" class="scaled-img" id="scaled-img" frameborder="0"></iframe>
+                </div> -->
             </mat-tab>
     </mat-tab-group>
 </div>

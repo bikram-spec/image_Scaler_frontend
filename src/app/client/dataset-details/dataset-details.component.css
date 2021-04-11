@@ -38,3 +38,14 @@
     width: 400px;
     height: 200px;
 }  
+
+/*  Scaled images data  */
+.scaled-img-div {
+    width: 100%;
+    height: 100%;
+}
+.scaled-img {
+    width: 100%;
+    height: 100%;
+}
+
