@@ -22,18 +22,30 @@
 
   <div class="modal-content">
     <div class="mySlides" *ngFor="let uimage of images_url">
-      <div class="numbertext">3 / 4</div>
-        <img [src]="uimage.uri" style="width:860px; height:620px">
-        <div class="annotation-looper" *ngFor="let annotation of uimage.annotation">
-          <div class="annotated_bounding_box" 
-            [style.top]="annotation.top" [style.left]="annotation.left" [style.width]="annotation.width" [style.height]="annotation.height">
-            <div style="overflow: hidden;">{{annotation.label}}</div>
-        </div>
-      </div>
+      <mat-grid-list cols="4" rowHeight="100%">
+          <mat-grid-tile colspan="3">
+            <div class="image-annotations">
+              <div class="numbertext">3 / 4</div>
+              <img [src]="uimage.uri" style="width:860px; height:620px" id="scaled-img">
+              <div class="annotation-looper" *ngFor="let annotation of uimage.annotation">
+                <div class="annotated_bounding_box" 
+                  [style.top]="annotation.top" [style.left]="annotation.left" [style.width]="annotation.width" [style.height]="annotation.height">
+                  <div style="overflow: hidden;">{{annotation.label}}</div>
+                </div>
+              </div>    
+            </div>
+            <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+            <a class="next" (click)="plusSlides(1)">&#10095;</a>  
+          </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+          <!-- scaled annotation textarea  -->
+          <div class="textarea-annotator">
+            <textarea name="annotations" id="annotatoins" cols="32" rows="40" [value]="uimage.areaannotation" readonly></textarea>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
     </div>
-    
-    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-    <a class="next" (click)="plusSlides(1)">&#10095;</a>
 
   </div>
 </div>

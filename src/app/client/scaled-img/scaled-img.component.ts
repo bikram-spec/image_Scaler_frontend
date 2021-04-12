@@ -8,7 +8,8 @@ import { WebRequestsService } from '../../services/web-requests.service'
 // the interface structure
 export interface img {
   uri:string,
-  annotation:object
+  annotation:object,
+  areaannotation:String
 }
 
 @Component({
@@ -58,7 +59,7 @@ export class ScaledImgComponent implements OnInit {
         this.images_names=res;
         this.images_url=[];
         Object.values(res).forEach((value)=>{
-            this.images_url.push({uri:`http://localhost:3000/api/getdata/${value.filename}`,annotation:value.anotations})
+            this.images_url.push({uri:`http://localhost:3000/api/getdata/${value.filename}`,annotation:value.anotations,areaannotation:JSON.stringify(value.anotations,null," ")})
         })
         console.log(res)
       }
