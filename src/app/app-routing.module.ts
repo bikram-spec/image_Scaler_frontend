@@ -10,8 +10,8 @@ import { NotfoundComponent } from '../app/client/notfound/notfound.component';
 import { HomeComponent } from '../app/client/home/home.component'
 import { DatasetDetailsComponent } from './client/dataset-details/dataset-details.component';
 import { StaticsComponent } from '../app/client/statics/statics.component';
+import { AuditComponent } from '../app/client/audit/audit.component'
 import { FeedbackComponent } from '../app/client/feedback/feedback.component'
-import { HelpComponent } from '../app/client/help/help.component'
 
 // Imports for the Scaler component 
 import { EditorComponent } from "../app/scaler/editor/editor.component"
@@ -38,8 +38,8 @@ const routes: Routes = [
     {path:'', component:StaticsComponent},
     {path:'form',component:FormComponent}
   ]},
-  {path:'help', component:NavComponent,children:[
-    {path:'',component:HelpComponent},
+  {path:'audit', component:NavComponent,children:[
+    {path:'',component:AuditComponent},
   ]},
   // {path:'questions', component:NavComponent,children:[
   //   {path:'',component:QuestionsComponent},

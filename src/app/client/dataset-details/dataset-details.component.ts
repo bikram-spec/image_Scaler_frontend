@@ -71,6 +71,7 @@ export class DatasetDetailsComponent implements OnInit {
     this.client.addimages(this.pname,formdata).subscribe((res)=>{
       //console.log(JSON.stringify(res));
       console.log(res);
+      this.images=[];
       this.getimagename(this.pname);
     })
   }

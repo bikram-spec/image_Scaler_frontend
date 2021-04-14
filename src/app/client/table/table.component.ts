@@ -5,24 +5,21 @@ import { MatTable } from '@angular/material/table';
 import { TableDataSource, TableItem } from './table-datasource';
 import { MatTableDataSource } from '@angular/material/table';
 import {FormBuilder, Validator} from '@angular/forms'
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+
+// service importts
+import { WebRequestsService } from '../../services/web-requests.service'
+
+// this is the interface for the server datat source
+export interface audits
+{
+  title:string,
+  completed:number,
+  rejected:number,
+  incomplete:number
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H',  },
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He',  },
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li',  },
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be',  },
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B',  },
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C',  },
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', },
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', },
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', },
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', },
-];
+
+// This will store the info from the response  in it.
+let audit_data: audits[] = []
 
 @Component({
   selector: 'app-table',
@@ -33,24 +30,33 @@ export class TableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<TableItem>;
-  //dataSource: TableDataSource;
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   searchform=this.fb.group({
     search: null
   })
   example={search:""}
-  
-  //listdata:MatTableDataSource<any>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  //displayedColumns = ['name','position','weight','symbol'];
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','Action'];
-  constructor(private fb:FormBuilder){}
-  //dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['title', 'completed', 'rejected', 'incomplete'];
+  dataSource: MatTableDataSource<audits>;
+  constructor(private fb:FormBuilder, private request:WebRequestsService){}
+
   ngOnInit() {
     //this.dataSource = new TableDataSource();
     //this.dataSource= new this.data;
     //console.log(this.dataSource);
+    this.request.getaudits().subscribe((res)=>{
+      console.log(res);
+      audit_data=[];
+      // dataSource = new MatTableDataSource<audits>(res);
+      Object.values(res).forEach((item)=>{
+        console.log(item);
+        audit_data.push(item);
+      })
+      this.dataSource=new MatTableDataSource<audits>(audit_data);
+    },
+    (err)=>{
+      console.log(err);
+    })
   }
 
   ngAfterViewInit() {

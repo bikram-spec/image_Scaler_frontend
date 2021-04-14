@@ -43,8 +43,9 @@ import { HomeComponent } from './client/home/home.component'
 import { AddProjectDialogComponent } from './client/add-project-dialog/add-project-dialog.component';
 import { StaticsComponent } from './client/statics/statics.component';
 import { FeedbackComponent } from './client/feedback/feedback.component';
-import {  HelpComponent } from './client/help/help.component';
 import { DatasetDetailsComponent } from './client/dataset-details/dataset-details.component';
+import { AuditComponent } from './client/audit/audit.component';
+import { ScaledImgComponent } from './client/scaled-img/scaled-img.component';
 
 // scaler component imports 
 import { EditorComponent } from './scaler/editor/editor.component';
@@ -60,7 +61,6 @@ import { HttpHelperService  } from '../app/services/http-helper.service';
 // auth gurad and intercepator
 import { AuthGuard } from '../app/auth/auth.guard';
 import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } from '@angular/common/http';
-import { ScaledImgComponent } from './client/scaled-img/scaled-img.component';
 
 
 
@@ -83,12 +83,12 @@ import { ScaledImgComponent } from './client/scaled-img/scaled-img.component';
     DatasetDetailsComponent,
     StaticsComponent,
     FeedbackComponent,
-    HelpComponent,
+    ScaledImgComponent,
+    AuditComponent,
     // scaler component 
     EditorComponent,
     SloginComponent,
-    SsignupComponent,
-    ScaledImgComponent
+    SsignupComponent
   ],
   imports: [
     BrowserModule,

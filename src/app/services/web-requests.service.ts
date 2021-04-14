@@ -53,6 +53,10 @@ export class WebRequestsService {
     return this.request.get("scaler/editor",this.noauth);
   }
 
+  getaudits()
+  {
+    return this.request.pget("getaudits");
+  }
   //scaler methods
   newSuser(data:Object){
     return this.request.spost("signup",data,this.noauth);
