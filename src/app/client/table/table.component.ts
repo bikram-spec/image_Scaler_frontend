@@ -38,6 +38,8 @@ export class TableComponent implements AfterViewInit, OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns: string[] = ['title', 'completed', 'rejected', 'incomplete'];
   dataSource: MatTableDataSource<audits>;
+
+  
   constructor(private fb:FormBuilder, private request:WebRequestsService){}
 
   ngOnInit() {
@@ -53,6 +55,7 @@ export class TableComponent implements AfterViewInit, OnInit {
         audit_data.push(item);
       })
       this.dataSource=new MatTableDataSource<audits>(audit_data);
+      // this.dataSource=audit_data
     },
     (err)=>{
       console.log(err);
@@ -60,8 +63,10 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
+
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+
     //this.table.dataSource = this.dataSource;
   }
   applyfilter(){

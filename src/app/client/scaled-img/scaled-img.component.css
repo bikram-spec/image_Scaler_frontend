@@ -111,11 +111,13 @@
   .next {
     right: 15px;
     border-radius: 3px 0 0 3px;
+    z-index: 3;
   }
   
   .prev {
     left: 15px;
     border-radius: 3px 0 0 3px;
+    z-index: 3;
   }
   /* On hover, add a black background color with a little bit see-through */
   .prev:hover,

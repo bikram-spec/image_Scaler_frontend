@@ -24,16 +24,10 @@ export class LocalStorageService {
   public deleteToken(key:string) {
     return localStorage.removeItem(key);    
   }
-  public deleteStoken(key:string) {
-    return localStorage.removeItem(key);    
-  }
   /**
    * getlocalStorage
    */
   public getToken(key:string) {
-    return localStorage.getItem(key);
-  }
-  public getStoken(key:string) {
     return localStorage.getItem(key);
   }
 }

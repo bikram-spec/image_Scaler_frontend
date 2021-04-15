@@ -21,6 +21,7 @@ import { SsignupComponent  } from '../app/scaler/ssignup/ssignup.component'
 // auth guard import
 
 import { AuthGuard } from '../app/auth/auth.guard';
+import { TableComponent } from './client/table/table.component';
 
 
 const routes: Routes = [

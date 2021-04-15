@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.login.isLogedIn()){
-      this.router.navigateByUrl('/profile');
+      this.router.navigateByUrl('/dashboard');
     }
   }
   onsubmit(){

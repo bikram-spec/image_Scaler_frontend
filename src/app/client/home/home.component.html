@@ -1,1 +1,68 @@
-<p>home works!</p>
+<div class="home-div">
+        <div class="tollbar-div">
+                <mat-toolbar color="primary">
+                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                          <mat-icon>analytics</mat-icon>
+                        </button>
+                        <span>Ml Data Scaler</span>
+
+                        <span class="example-spacer"></span>
+                        
+                        <!-- right side buttons -->
+                        <div class="right-side-button">
+                          <button mat-raised-button class="button1" [matMenuTriggerFor]="menu">
+                            <mat-icon>person</mat-icon>
+                            <span>Client</span>
+                          </button>
+                          <button mat-raised-button class="button2" [matMenuTriggerFor]="smenu">
+                            <mat-icon>manage_accounts</mat-icon>
+                            <span>Scaler</span>                            
+                          </button>
+
+                          <!-- menu buttons -->
+                          <!-- client menu -->
+                          <mat-menu #menu="matMenu" aria-label="Example icon-button with a menu">
+                            <button mat-menu-item routerLink="/login">
+                              <mat-icon>login</mat-icon>
+                              <span>Sign In</span>
+                            </button>
+                            <button mat-menu-item routerLink="/signup">
+                              <mat-icon>person_add</mat-icon>
+                              <span>Sign Up</span>
+                            </button>
+                          </mat-menu>
+                          <!-- client menu ends -->
+                          <!-- scaler menu start -->
+                          <mat-menu #smenu="matMenu" aria-label="Example icon-button with a menu">
+                            <button mat-menu-item routerLink="/scaler/login">
+                              <mat-icon>login</mat-icon>
+                              <span>Sign In</span>
+                            </button>
+                            <button mat-menu-item routerLink="/scaler/signup">
+                              <mat-icon>person_add</mat-icon>
+                              <span>Sign Up</span>
+                            </button>
+                          </mat-menu>
+                          <!-- scaler menu ends  -->
+                        </div>
+                </mat-toolbar>
+        </div>
+        <!-- first card begins here -->
+        <div class="first-card">
+          <div class="typewriter">
+            <div class="first-title">
+              Better Data
+            </div>
+          </div>
+          <div class="typewriter">
+            <div class="second-title">
+              Better AI
+            </div>
+          </div>
+
+        <div class="intro-para">
+          <p class="intro-p">Better data leads to more performant models. Performant models lead to faster deployment. Deliver value from your AI investments faster with better data.
+          </p>
+        </div>
+        </div>
+</div>

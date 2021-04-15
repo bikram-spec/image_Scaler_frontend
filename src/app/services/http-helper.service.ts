@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {LocalStorageService} from '../services/local-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpHelperService {
 
-  constructor(private token:LocalStorageService) { }
+  constructor(private token:LocalStorageService,private router:Router) { }
   
   // client login checker
   isLogedIn():boolean{
@@ -47,4 +48,13 @@ export class HttpHelperService {
       }
     }  
   }
+  // scaler login ends here
+
+  // logouut 
+  logout()
+  {
+    this.token.deleteToken("authorization");
+    this.router.navigateByUrl('/home');
+  }
+
 }

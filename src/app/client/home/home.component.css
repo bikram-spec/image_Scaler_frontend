@@ -1,0 +1,64 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+ .button1 {
+   margin: 5px;
+ }
+ .button2 {
+  margin: 5px;
+}
+
+
+/* first card styling */
+.first-card {
+  width: 100%;
+  height: 565px;
+  background-color: black;
+}
+
+.first-title {
+  font-size: 125px;
+  color: white;
+  padding-top: 100px;
+  padding-left: 150px;
+}
+.second-title
+{
+  font-size: 125px;
+  color: white;
+  padding-top: 50px;
+  padding-left: 150px;
+}
+
+/* syles shee */
+.typewriter {
+  height: 200px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+.intro-para {
+  position: absolute;
+  color: white;
+  padding-left: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+}
