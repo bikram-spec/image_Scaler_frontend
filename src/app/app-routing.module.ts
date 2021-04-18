@@ -17,7 +17,8 @@ import { FeedbackComponent } from '../app/client/feedback/feedback.component'
 import { EditorComponent } from "../app/scaler/editor/editor.component"
 import { SloginComponent} from "../app/scaler/slogin/slogin.component";
 import { SsignupComponent  } from '../app/scaler/ssignup/ssignup.component'
-
+import { SdashboardComponent }  from  '../app/scaler/sdashboard/sdashboard.component'
+import { SnavComponent } from '../app/scaler/snav/snav.component'
 // auth guard import
 
 import { AuthGuard } from '../app/auth/auth.guard';
@@ -55,6 +56,9 @@ const routes: Routes = [
   {path:"scaler/editor",component:EditorComponent},
   {path:'scaler/login',component:SloginComponent},
   {path:'scaler/signup',component:SsignupComponent},
+  {path:"scaler/dashboard",component:SnavComponent,children:[
+    {path:'',component:SdashboardComponent}
+  ]},
   // Routes for the error handeling 
   {path:"",redirectTo:"/home",pathMatch:"full"},
   //{path:"**",redirectTo:"/404"}

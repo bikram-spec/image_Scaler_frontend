@@ -56,5 +56,12 @@ export class HttpHelperService {
     this.token.deleteToken("authorization");
     this.router.navigateByUrl('/home');
   }
+  
+  // slogout 
+  slogout()
+  {
+    this.token.deleteToken("sauthorization");
+    this.router.navigateByUrl('/home');
+  }
 
 }

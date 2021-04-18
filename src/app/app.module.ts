@@ -61,6 +61,8 @@ import { HttpHelperService  } from '../app/services/http-helper.service';
 // auth gurad and intercepator
 import { AuthGuard } from '../app/auth/auth.guard';
 import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } from '@angular/common/http';
+import { SnavComponent } from './scaler/snav/snav.component';
+import { SdashboardComponent } from './scaler/sdashboard/sdashboard.component';
 
 
 
@@ -88,7 +90,9 @@ import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } f
     // scaler component 
     EditorComponent,
     SloginComponent,
-    SsignupComponent
+    SsignupComponent,
+    SnavComponent,
+    SdashboardComponent
   ],
   imports: [
     BrowserModule,

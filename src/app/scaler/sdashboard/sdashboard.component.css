@@ -1,0 +1,37 @@
+/*  main layout */
+.grid-container {
+    margin: 20px;
+  }
+  /*mat Icons and font property  */
+  
+  /* mat icons ends */
+  /* Default card or add card  */
+  #default-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  #default-card:hover {
+    background-color: lightskyblue;
+  }
+  #default-card:hover > .default-card-content {
+    color: white;
+  }
+  .default-card-content {
+    text-align: center;
+    color: lightseagreen;
+  }
+  #add-icon {
+    float:center;
+    margin-top: 30%;
+    font-size: 80px;
+  }
+  #add-icon1 {
+    margin-top: 15%;
+    float: center;
+    font-size: 80px;
+  }

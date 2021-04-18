@@ -37,7 +37,7 @@ export class SloginComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.login.isSlogedIn()){
-      this.router.navigateByUrl('/scaler/editor');
+      this.router.navigateByUrl('/scaler/dashboard');
     }
   }
 
@@ -55,7 +55,7 @@ export class SloginComponent implements OnInit {
         {
           let tdata=Response["token"];
           this.token.setSlocalStorage(tdata);
-          this.router.navigateByUrl('/scaler/editor');
+          this.router.navigateByUrl('/scaler/dashboard');
         }
       })
     }
