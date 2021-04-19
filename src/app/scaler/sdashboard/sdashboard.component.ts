@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  WebRequestsService } from '../../services/web-requests.service'
 
 @Component({
   selector: 'app-sdashboard',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sdashboard.component.css']
 })
 export class SdashboardComponent implements OnInit {
+  projectdone:number=0;
 
-  constructor() { }
+  constructor(private srequest:WebRequestsService) { }
 
   ngOnInit(): void {
+    this.srequest.getprojectdone().subscribe(
+      (res)=>{
+        console.log(res["task_completed"]);
+        this.projectdone=res["task_completed"];
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
   }
 
 }

@@ -53,4 +53,8 @@ export class HttpRequestService {
   {
     return this.http.post(`${this.srooturl}/${uri}`,payload);
   }
+  spget(uri:string){
+    let authheader= { headers : new HttpHeaders({"sauthorization":` Bearer ${this.token.getToken("sauthorization")}`})}
+    return this.http.get(`${this.srooturl}/${uri}`,authheader);
+  }
 }

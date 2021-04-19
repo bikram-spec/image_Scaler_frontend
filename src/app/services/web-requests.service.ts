@@ -64,4 +64,8 @@ export class WebRequestsService {
   verifySuser(data:object){
     return this.request.spost("signin",data,this.noauth);
   }
+  getprojectdone()
+  {
+    return this.request.spget("projectdone");
+  }
 }
