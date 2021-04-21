@@ -63,7 +63,7 @@ export class SsignupComponent implements OnInit {
           this.signupRequest.newSuser({"company_name":this.signup.value.institue_name,"email":this.signup.value.email,"password":this.signup.value.password}).subscribe((response)=>{
             let tdata=response["token"];
             this.token.setSlocalStorage(tdata)
-            this.router.navigateByUrl('/scaler/editor');
+            this.router.navigateByUrl('/scaler/dashboard');
           })
         }
 
