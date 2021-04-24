@@ -17,7 +17,10 @@ export class EditorComponent implements OnInit {
   trustedDashboardUrl;
   iframeuri;
   
-  constructor(private webreq:WebRequestsService,private storage:LocalStorageService,private sanitizer: DomSanitizer) { }
+  constructor(
+    private webreq:WebRequestsService,
+    private storage:LocalStorageService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
    /* this.webreq.getinfo().subscribe(

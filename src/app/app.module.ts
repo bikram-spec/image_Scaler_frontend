@@ -51,6 +51,9 @@ import { ScaledImgComponent } from './client/scaled-img/scaled-img.component';
 import { EditorComponent } from './scaler/editor/editor.component';
 import { SloginComponent } from './scaler/slogin/slogin.component';
 import { SsignupComponent } from './scaler/ssignup/ssignup.component';
+import { SnavComponent } from './scaler/snav/snav.component';
+import { SdashboardComponent } from './scaler/sdashboard/sdashboard.component';
+import { CeditorComponent } from './scaler/ceditor/ceditor.component';
 
 // Services imports 
 import { HttpRequestService } from '../app/services/http-request.service'
@@ -61,8 +64,6 @@ import { HttpHelperService  } from '../app/services/http-helper.service';
 // auth gurad and intercepator
 import { AuthGuard } from '../app/auth/auth.guard';
 import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } from '@angular/common/http';
-import { SnavComponent } from './scaler/snav/snav.component';
-import { SdashboardComponent } from './scaler/sdashboard/sdashboard.component';
 
 
 
@@ -92,7 +93,8 @@ import { SdashboardComponent } from './scaler/sdashboard/sdashboard.component';
     SloginComponent,
     SsignupComponent,
     SnavComponent,
-    SdashboardComponent
+    SdashboardComponent,
+    CeditorComponent
   ],
   imports: [
     BrowserModule,

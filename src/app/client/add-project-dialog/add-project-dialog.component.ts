@@ -52,7 +52,7 @@ export class AddProjectDialogComponent implements OnInit {
     instruction:[null,Validators.required],
     object:[null]
   });
-  select_types=['image segementation', 'image classfication'];
+  select_types=['image annotation', 'image classfication'];
 /*   cards= [{titile:"demo",subtitle:"first item",description:"welcome to the first item and enjoy ",row:1,col:1},
           {titile:"demo",subtitle:"first item",description:"welcome to the first item and enjoy ",row:1,col:1},
           {titile:"demo",subtitle:"first item",description:"welcome to the first item and enjoy ",row:1,col:1},

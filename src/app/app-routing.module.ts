@@ -14,7 +14,8 @@ import { AuditComponent } from '../app/client/audit/audit.component'
 import { FeedbackComponent } from '../app/client/feedback/feedback.component'
 
 // Imports for the Scaler component 
-import { EditorComponent } from "../app/scaler/editor/editor.component"
+import { EditorComponent } from "../app/scaler/editor/editor.component";
+import { CeditorComponent } from "../app/scaler/ceditor/ceditor.component"
 import { SloginComponent} from "../app/scaler/slogin/slogin.component";
 import { SsignupComponent  } from '../app/scaler/ssignup/ssignup.component'
 import { SdashboardComponent }  from  '../app/scaler/sdashboard/sdashboard.component'
@@ -54,6 +55,7 @@ const routes: Routes = [
   ]},
   // Routes for the scalers editor 
   {path:"scaler/editor",component:EditorComponent},
+  {path:"scaler/ceditor",component:CeditorComponent},
   {path:'scaler/login',component:SloginComponent},
   {path:'scaler/signup',component:SsignupComponent},
   {path:"scaler/dashboard",component:SnavComponent,children:[
