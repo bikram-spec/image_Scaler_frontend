@@ -41,13 +41,13 @@
   border: none;
 }
 /* Card header Start  */
-.dashboard-card:hover >.card-header > #header-icon  {
+/* .dashboard-card:hover >.card-header > #header-icon  {
   display: block;
-}
+} */
 #header-icon {
   float: right;
   font-size: 30px;
-  display: none;
+  display: block;
 }
 .card-header {
   display: flex;

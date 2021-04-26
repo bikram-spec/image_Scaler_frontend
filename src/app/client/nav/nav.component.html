@@ -5,13 +5,18 @@
       [opened]="(isHandset$ | async) === false"
       
   >
-  <mat-toolbar class="logo"> ML Data Scaler</mat-toolbar>
-  <hr />
+  <!-- <mat-toolbar class="logo"> ML Data Scaler</mat-toolbar> -->
+ <!--  <hr />
   <mat-toolbar class="client-name">
     <span class="material-icons">face</span>
     <div class="name-text">{{ name }} </div>
   </mat-toolbar>
-  <hr />
+  <hr /> -->
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>analytics</mat-icon>
+  </button>
+  <span>Ml Data Scaler</span>
+  <img src="assets/avatar.png" alt="profile photo" style="width: 100px; margin-left: 45px;">
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard">
         <span class="material-icons">dashboard</span>
@@ -45,7 +50,10 @@
         >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="company-name">MLDC</span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>analytics</mat-icon>
+      </button>
+      <span>Ml Data Scaler</span>
       <span class="example-spacer"></span>
       <span class="material-icons" id="icons">settings</span>
       <!-- <span class="material-icons" id="icons">account_circle</span> -->

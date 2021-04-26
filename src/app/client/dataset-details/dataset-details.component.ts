@@ -11,7 +11,8 @@ import { NgForm } from '@angular/forms';
 
 export interface img {
   uri:string,
-  Status:string
+  Status:string,
+  Tags?:string[]
 }
 
 @Component({
@@ -23,7 +24,8 @@ export class DatasetDetailsComponent implements OnInit {
 
   parm;
   images=[];
-  images_names:any
+  images_names:any;
+  scaled_data:any;
   images_url:img[]=[]
   pname:string;
   /* The form for the file upload code with templere driven form .. */
@@ -87,11 +89,44 @@ export class DatasetDetailsComponent implements OnInit {
         this.images_names=res;
         this.images_url=[];
         Object.values(res).forEach((value)=>{
-            this.images_url.push({uri:`http://localhost:3000/api/getdata/${value.filename}`,Status:value.Status})
+          if(value.cannotation.length!=0)
+          {
+            this.images_url.push({uri:`http://localhost:3000/api/getdata/${value.filename}`,Status:value.Status,Tags:value.cannotation})
+          }
+          else
+          {
+            this.images_url.push({uri:`http://localhost:3000/api/getdata/${value.filename}`,Status:value.Status})            
+          }
         })
         console.log(res)
       }
     )
+  }
+
+  // getting scaled data
+  getscaleddata(prname:string){
+    console.log("The value of pname is :- ",prname)
+    this.client.listscaledimages(prname).subscribe(
+      (res)=>{
+        if(!res)
+        {
+          console.log("Empty image set...");
+        }
+        this.scaled_data=res;
+        console.log(res)
+      }
+    )
+  }
+
+  /* export data event handler */
+  export_data() {
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.scaled_data));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download","scale.json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
   }
   
   /* The form for the file upload code templere driven code  ennds.. */
@@ -110,6 +145,7 @@ export class DatasetDetailsComponent implements OnInit {
     console.log(this.parm.source.source._value.title);
     this.pname=this.parm.source.source._value.title;
     this.getimagename(this.pname);
+    this.getscaleddata(this.pname);
     /* above mention works done */
 
 

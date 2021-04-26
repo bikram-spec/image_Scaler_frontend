@@ -21,10 +21,14 @@
                 </mat-form-field>
                 <button class="submit-button" mat-raised-button color="primary" type="submit">Upload</button>
             </form>
+            <!-- export dataset button -->
+            <div class="export-div">
+                <button mat-raised-button color="accent" (click)="export_data()">Export Data</button>
+            </div>
             <!-- Place to show the images and tabs -->
             <div class="list-images">
                 <div class="img-url" *ngIf="images_url">
-                    <mat-grid-list cols="3" rowHeight="250px">
+                    <mat-grid-list cols="3" rowHeight="300px">
                         <div class="img-looper" *ngFor="let uimage of images_url">
                             <!-- <img [src]="uimage" /> -->
                             <mat-grid-tile>
@@ -32,6 +36,9 @@
                                     <img mat-card-image [src]="uimage.uri" alt="Image" class="card-image">
                                     <mat-card-content>
                                     <p> <strong>Status:-</strong> {{uimage.Status}}</p>
+                                    <p *ngIf="uimage.Tags"><strong>Tags:-</strong>
+                                        {{uimage.Tags}}
+                                    </p>
                                     </mat-card-content>
                                 </mat-card>
                             </mat-grid-tile>

@@ -38,7 +38,10 @@
     width: 400px;
     height: 200px;
 }  
-
+.export-div {
+    margin-top: 0px;
+    margin-left: 90%;
+}
 /*  Scaled images data  */
 .scaled-img-div {
     width: 100%;
