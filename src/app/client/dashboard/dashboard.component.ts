@@ -84,6 +84,20 @@ export class DashboardComponent {
       })
     }
 
+    // deleting Dataset
+    deleteDataset(title:String)
+    {
+      this.project.deleteDataset({"title":title}).subscribe(
+        (res)=>{
+          console.log(res);
+          this.projectdetails();
+        },
+        (err)=>{
+          console.log(err);
+        }
+      )
+    }
+
 
 
   constructor(private breakpointObserver: BreakpointObserver,public dialog:MatDialog, private project:WebRequestsService) {this.projectdetails()}

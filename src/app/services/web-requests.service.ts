@@ -25,16 +25,23 @@ export class WebRequestsService {
     return this.request.pget("userprofile");
   }
 
+
+
+
   adddataset(details:Object){
     return this.request.ppost('addDatasetName',details)
   }
   updateDataset(details:Object){
     return this.request.ppost('updateDataset',details)
   }
-
+  deleteDataset(details:Object){
+    return this.request.ppost("deleteDataset",details)
+  }
   projectdetails(){
     return this.request.pget("projectdetails");
   }
+
+
 
   addimages(pname:string,payload:Object)
   {
@@ -49,6 +56,8 @@ export class WebRequestsService {
   {
     return this.request.imgget("getScaleddata",pname);
   }
+
+
 
   // Scaler helper methods ....
   getinfo()

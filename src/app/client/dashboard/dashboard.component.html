@@ -23,7 +23,7 @@
             <span class="material-icons" id="header-icon" [matMenuTriggerFor]="menu">more_vert</span>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="openupdatedialog(card.Dataset_title,card.Dataset_type,card.ObjectsToAnnotate,card.Instruction)">Update</button>
-              <button mat-menu-item >Remove</button>
+              <button mat-menu-item (click)="deleteDataset(card.Dataset_title)" >Remove</button>
             </mat-menu>
           </mat-card-title>
           <mat-card-subtitle class="card-subtitle">
