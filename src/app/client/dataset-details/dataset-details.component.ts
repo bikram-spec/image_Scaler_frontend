@@ -120,7 +120,7 @@ export class DatasetDetailsComponent implements OnInit {
 
   /* export data event handler */
   export_data() {
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.scaled_data));
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.scaled_data,null," "));
     var downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);
     downloadAnchorNode.setAttribute("download","scale.json");

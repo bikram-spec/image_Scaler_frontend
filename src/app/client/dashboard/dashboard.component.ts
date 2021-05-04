@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog} from '@angular/material/dialog';
 import { AddProjectDialogComponent} from '../add-project-dialog/add-project-dialog.component';
+import { UpdateDialogComponent} from '../update-dialog/update-dialog.component'
 import { WebRequestsService } from '../../services/web-requests.service';
 
 @Component({
@@ -48,6 +49,21 @@ export class DashboardComponent {
     opendialog() {
       const dialogref=this.dialog.open(AddProjectDialogComponent,{width:"30%",height:"80%"});
       dialogref.afterClosed().subscribe(result =>{
+        console.log("dialog worked "+result);
+        this.projectdetails();
+      })
+    }
+
+
+    openupdatedialog(title:String,type:String,objects:String[],instruction:String)
+    {
+      console.log(title);
+      const dialogref1=this.dialog.open(UpdateDialogComponent,
+        {width:"30%",
+        height:"80%",
+        data: {name:title,dtype:type,dobjects:objects,dinstruction:instruction}
+        });
+      dialogref1.afterClosed().subscribe(result =>{
         console.log("dialog worked "+result);
         this.projectdetails();
       })

@@ -64,6 +64,7 @@ import { HttpHelperService  } from '../app/services/http-helper.service';
 // auth gurad and intercepator
 import { AuthGuard } from '../app/auth/auth.guard';
 import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } from '@angular/common/http';
+import { UpdateDialogComponent } from './client/update-dialog/update-dialog.component';
 
 
 
@@ -94,7 +95,8 @@ import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } f
     SsignupComponent,
     SnavComponent,
     SdashboardComponent,
-    CeditorComponent
+    CeditorComponent,
+    UpdateDialogComponent
   ],
   imports: [
     BrowserModule,

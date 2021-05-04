@@ -28,6 +28,9 @@ export class WebRequestsService {
   adddataset(details:Object){
     return this.request.ppost('addDatasetName',details)
   }
+  updateDataset(details:Object){
+    return this.request.ppost('updateDataset',details)
+  }
 
   projectdetails(){
     return this.request.pget("projectdetails");
