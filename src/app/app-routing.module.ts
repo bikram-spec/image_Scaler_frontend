@@ -23,6 +23,7 @@ import { SnavComponent } from '../app/scaler/snav/snav.component'
 // auth guard import
 
 import { AuthGuard } from '../app/auth/auth.guard';
+import { SguardGuard } from '../app/auth/sguard.guard'
 import { TableComponent } from './client/table/table.component';
 
 
@@ -36,14 +37,14 @@ const routes: Routes = [
   {path:'dashboard', component:NavComponent,children:[
     {path:'',component:DashboardComponent},
     {path:'dataset-details/:title',component:DatasetDetailsComponent},
-  ]},
+  ],canActivate:[ AuthGuard]},
   {path:'statics', component:NavComponent,children:[
     {path:'', component:StaticsComponent},
     {path:'form',component:FormComponent}
-  ]},
+  ],canActivate:[ AuthGuard]},
   {path:'audit', component:NavComponent,children:[
     {path:'',component:AuditComponent},
-  ]},
+  ],canActivate:[ AuthGuard]},
   // {path:'questions', component:NavComponent,children:[
   //   {path:'',component:QuestionsComponent},
   // ],canActivate:[ AuthGuard]},
@@ -54,16 +55,16 @@ const routes: Routes = [
     {path:'',component:EditorComponent}
   ]},
   // Routes for the scalers editor 
-  {path:"scaler/editor",component:EditorComponent},
-  {path:"scaler/ceditor",component:CeditorComponent},
+  {path:"scaler/editor",component:EditorComponent,canActivate:[ SguardGuard ]},
+  {path:"scaler/ceditor",component:CeditorComponent,canActivate:[ SguardGuard ]},
   {path:'scaler/login',component:SloginComponent},
   {path:'scaler/signup',component:SsignupComponent},
   {path:"scaler/dashboard",component:SnavComponent,children:[
     {path:'',component:SdashboardComponent}
-  ]},
+  ],canActivate:[ SguardGuard ]},
   // Routes for the error handeling 
   {path:"",redirectTo:"/home",pathMatch:"full"},
-  //{path:"**",redirectTo:"/404"}
+  {path:"**",redirectTo:"/404"}
 ];
 
 @NgModule({
