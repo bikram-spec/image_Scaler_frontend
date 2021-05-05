@@ -6,6 +6,7 @@ import { WebRequestsService } from '../../services/web-requests.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { Router } from '@angular/router';
 import { HttpHelperService } from '../../services/http-helper.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signin',
@@ -33,7 +34,7 @@ export class SigninComponent implements OnInit {
   )
 
 
-  constructor(private login:HttpHelperService,private fb:FormBuilder,private breakpointObserver:BreakpointObserver,private http:WebRequestsService,private token:LocalStorageService,private router:Router) { }
+  constructor(private login:HttpHelperService,private fb:FormBuilder,private breakpointObserver:BreakpointObserver,private http:WebRequestsService,private token:LocalStorageService,private router:Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     if(this.login.isLogedIn()){
@@ -49,6 +50,7 @@ export class SigninComponent implements OnInit {
       this.http.verifyUser({email:this.signin.value.email,password:this.signin.value.password}).subscribe((Response)=>{
         if(!Response["token"]){
           console.log(Response["message"]);
+          this._snackBar.open(Response["message"], "ok");
         }
         else 
         {

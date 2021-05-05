@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 // component imports 
@@ -46,6 +47,7 @@ import { FeedbackComponent } from './client/feedback/feedback.component';
 import { DatasetDetailsComponent } from './client/dataset-details/dataset-details.component';
 import { AuditComponent } from './client/audit/audit.component';
 import { ScaledImgComponent } from './client/scaled-img/scaled-img.component';
+import { UpdateDialogComponent } from './client/update-dialog/update-dialog.component';
 
 // scaler component imports 
 import { EditorComponent } from './scaler/editor/editor.component';
@@ -64,7 +66,6 @@ import { HttpHelperService  } from '../app/services/http-helper.service';
 // auth gurad and intercepator
 import { AuthGuard } from '../app/auth/auth.guard';
 import { HttpInterceptor,HTTP_INTERCEPTORS,HttpRequest,HttpHandler,HttpEvent } from '@angular/common/http';
-import { UpdateDialogComponent } from './client/update-dialog/update-dialog.component';
 
 
 
@@ -126,7 +127,8 @@ import { UpdateDialogComponent } from './client/update-dialog/update-dialog.comp
     MatDialogModule,
     MatProgressBarModule,
     MatChipsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
